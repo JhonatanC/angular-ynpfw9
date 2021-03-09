@@ -1,4 +1,4 @@
-<div *ngFor="let item of allPermissions">
-  <input type="checkbox"  [checked]="userPermissions.id == item.id">
-      {{ item.name }}
+<div *ngFor="let permission  of allPermissions; let i = index">
+  <input type="checkbox" [checked]="permission.checked">
+      {{ permission.name }}
 </div>

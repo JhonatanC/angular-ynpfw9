@@ -145,8 +145,26 @@ export class AppComponent {
     }
   ];
 
+  newArray: any = [];
+
   constructor() {
-    console.log(this.allPermissions);
-    console.log(this.userPermissions);
+    for (var i = 0; i < this.allPermissions.length; i++) {
+      var ismatch = false;
+
+      for (var j = 0; j < this.userPermissions.length; j++) {
+        if (this.allPermissions[i].name == this.userPermissions[j].name) {
+          ismatch = true;
+          this.allPermissions[i].checked = true;
+          this.newArray.push(this.allPermissions[i]);
+          break;
+        }
+      }
+
+      if (!ismatch) {
+        this.allPermissions[i].checked = false;
+        this.newArray.push(this.allPermissions[i]);
+      }
+    }
+    console.log(this.newArray);
   }
 }
